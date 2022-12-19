@@ -8,8 +8,17 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "student")
-public class Student {
+@Table(name = "Employee")
+public class Employee {
+
+    public Employee() {
+    }
+
+    public Employee(String firstName, String lastName, String company) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.company = company;
+    }
 
     @Id
     @Column
@@ -22,17 +31,7 @@ public class Student {
     @Column(name = "last_name")
     private String lastName;
 
-    @Column
-    private String email;
-
-    public Student() {
-    }
-
-    public Student(String firstName, String lastName, String email) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-    }
+    private String company;
 
     public int getId() {
         return id;
@@ -58,21 +57,21 @@ public class Student {
         this.lastName = lastName;
     }
 
-    public String getEmail() {
-        return email;
+    public String getCompany() {
+        return company;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setCompany(String company) {
+        this.company = company;
     }
 
     @Override
     public String toString() {
-        return "Student{" +
+        return "Employee{" +
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", email='" + email + '\'' +
+                ", company='" + company + '\'' +
                 '}';
     }
 }
